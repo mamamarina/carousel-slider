@@ -142,24 +142,22 @@ init() {
 
 class SwipeCarousel extends Carousel {
 
-  __initListeners() {
+  _initListeners() {
     super._initListeners();
     this.container.addEventListener('touchstart', this._swipeStart.bind(this));
     this.container.addEventListener('touchend', this._swipeEnd.bind(this));
   }
-
+  
   _swipeStart(event) {
-    if (event.changeTouches.length === 1)
-      this.swipeStartX = (event.changedTouches[0].pageX);
+    if (event.changedTouches.length === 1)
+      this.swipeStartX = event.changedTouches[0].pageX;
   }
 
   _swipeEnd(event) {
     if (event.changedTouches.length === 1) {
       this.swipeEndX = event.changedTouches[0].pageX;
-    if (this.swipeStartX - this.swipeEndX > 0)
-      this.next();
-    if (this.swipeStartX - this.swipeEndX < 0)
-      this.prev();
+    if (this.swipeStartX - this.swipeEndX < 0) this.prev();
+    if (this.swipeStartX - this.swipeEndX > 0) this.next();
     }
   }
 }

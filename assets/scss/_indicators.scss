@@ -14,15 +14,18 @@
 .indicator {
   width: $gap*2;
   height: $gap*2;
-  margin: -($gap*4) ($gap/4)*3 0;
+  margin: -($gap*3) ($gap/4)*3 0;
   background: linear-gradient(to left, $color-dark-gray, $color-light);
   border: 1px solid rgba($color-light, 0.4);
   border-radius: 50%;
   outline: none;
   background-clip: padding-box;
 
-  @include lg-min {
+  @include lg {
     cursor: pointer;
+    margin: -($gap*3.5) ($gap/2) 0;
+    width: $gap;
+    height: $gap;
   }
   
   &:hover {
@@ -31,7 +34,7 @@
 
   &.active {
     border-color: $color-accent;
-    box-shadow: 0 0 10px $color-accent-light;
+    box-shadow: 0 0 $gap $color-accent-light;
     background: linear-gradient(to left, $color-accent, $color-accent-light);
   }
 }

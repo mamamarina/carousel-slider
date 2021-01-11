@@ -36,6 +36,7 @@ html {
 
 body {
   margin: 0;
+  background: #23272c;
 }
 
 .fa-arrow-circle-left,
@@ -53,10 +54,8 @@ body {
 .slides {
   position: relative;
   height: 100vh;
-  margin: 0;
   padding: 0;
   list-style-type: none;
-  background: #23272c;
 }
 
 .slide {
@@ -66,14 +65,17 @@ body {
   width: 100%;
   height: 100%;
   padding: 40px;
-  -webkit-transition: opacity 1s;
-  -o-transition: opacity 1s;
-  transition: opacity 1s;
+  -webkit-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
   opacity: 0;
   background-position: 50% 50%;
-  background-size: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
+  background-size: 75%;
   background-repeat: no-repeat;
   font-size: 40px;
+  text-shadow: 0 0 5px #90ee90;
 }
 
 .slide.active {
@@ -147,7 +149,7 @@ body {
 .indicator {
   width: 20px;
   height: 20px;
-  margin: -40px 7.5px 0;
+  margin: -30px 7.5px 0;
   background: -webkit-gradient(linear, right top, left top, from(#23272c), to(#ffffff));
   background: -o-linear-gradient(right, #23272c, #ffffff);
   background: linear-gradient(to left, #23272c, #ffffff);
@@ -174,7 +176,21 @@ body {
   .control-pause, .control-prev, .control-next {
     cursor: pointer;
   }
+}
+
+@media (max-width: 991px) {
   .indicator {
     cursor: pointer;
+    margin: -35px 5px 0;
+    width: 10px;
+    height: 10px;
+  }
+}
+
+@media (max-width: 767px) {
+  .slide {
+    text-align: center;
+    font-size: 30px;
+    background-size: 100%;
   }
 }
